@@ -1,0 +1,11 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.authentication {
+  width: 100%;
+  padding: 5%;
+}
+.form-group {
+  display: flex;
+  gap: 20px;
+}

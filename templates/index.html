@@ -4,9 +4,34 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Testing Flask forms</title>
 </head>
 <body>
+  <!-- this is a hidden input -->
+  <input type="hidden" name="action" value="register">
+
+  <!-- this is an example of using hidden a hidden form that sees whether the user has "login" or "register" -->
+  <div class="authentication">
+    <h2 style="color: gray; margin-bottom: 20px;">Login/Register</h2>
+    <form method="post" action="/process" class="form-group">
+      <input type="hidden" name="which_form" value="register">
+      <input type="text" name="first_name" class="form-control" placeholder="first name">
+      <input type="text" name="last_name" class="form-control" placeholder=" last name">
+      <input type="text" name="email" class="form-control" placeholder="email">
+      <input type="password" name="password" class="form-control" placeholder="password">
+      <input type="submit" value="Register" class="btn btn-primary">
+    </form>
+    <hr class="mb-4">
+    <form method="post" action="/process" class="form-group">
+        <input type="hidden" name="which_form" value="login">
+        <input type="text" name="email" class="form-control" placeholder="email">
+        <input type="password" name="password" class="form-control" placeholder="password">
+        <input type="submit" value="Login" class="btn btn-primary">
+    </form>
+  </div>
+
   <h1>Index Page</h1>
   <h3>Create a User</h3>
   <form action='/users' method='post'>
